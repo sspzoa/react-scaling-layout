@@ -1,5 +1,110 @@
 # React Scaling Layout
 
+[](https://www.google.com/search?q=https://badge.fury.io/js/%2540sspzoa%252Freact-scaling-layout)
+[](https://opensource.org/licenses/MIT)
+
+`@sspzoa/react-scaling-layout` is a responsive React layout component that dynamically scales its entire content based on the viewport width. It helps maintain design consistency on smaller screens for layouts that were designed with a specific minimum width (e.g., 768px) in mind.
+
+## ✨ Why Use It?
+
+* **Maintain Design Consistency**: It's useful when you want to preserve the proportions of all elements (fonts, padding, images, etc.) when a screen designed for a tablet size (e.g., 768px) is scaled down to a mobile screen (e.g., 360px).
+* **Simplified Responsiveness**: It implements responsiveness by scaling down the entire layout as a single unit, without the need for complex media queries or individual adjustments to element sizes.
+* **Fixed Aspect Ratio**: The entire content area is adjusted proportionally, allowing you to maintain the original feel of the design mock-up.
+
+## 🚀 Installation
+
+```bash
+# Using npm
+npm install @sspzoa/react-scaling-layout
+
+# Using yarn
+yarn add @sspzoa/react-scaling-layout
+```
+
+## 📖 Usage
+
+### Basic Usage
+
+Wrap the section you want to apply scaling to with the `ScalingLayout` component. Typically, this would be the top-level App component or the root component of a page.
+
+```jsx
+// App.jsx
+import { ScalingLayout } from '@sspzoa/react-scaling-layout';
+import MyPage from './MyPage';
+
+function App() {
+  return (
+    // By setting minWidth to 768, the content will scale down 
+    // when the screen width is less than 768px.
+    <ScalingLayout minWidth={768}>
+      <MyPage />
+    </ScalingLayout>
+  );
+}
+
+export default App;
+```
+
+### Using the `useScaling` Hook
+
+In a child component of `ScalingLayout`, you can use the `useScaling` hook to access information such as the current scale value and window dimensions.
+
+```jsx
+// MyComponent.jsx
+import { useScaling } from '@sspzoa/react-scaling-layout';
+
+function MyComponent() {
+  const { scale, windowWidth, scaledVh } = useScaling();
+
+  const headerStyle = {
+    // To maintain a 2px thick border regardless of the current scale
+    border: `${2 / scale}px solid black`,
+    // To accurately calculate a height of 10vh in a scaled environment
+    height: `${scaledVh(10)}px`,
+  };
+
+  return (
+    <div>
+      <p>Current window width: {windowWidth}px</p>
+      <p>Current scale: {scale.toFixed(2)}</p>
+      <header style={headerStyle}>
+        This header is adjusted for the scaled environment.
+      </header>
+    </div>
+  );
+}
+```
+
+## ⚙️ API
+
+### `<ScalingLayout />` Props
+
+| Prop                          | Type        | Default | Description                                                                                                                              |
+| ----------------------------- | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `children`                    | `ReactNode` | -       | The React components to be rendered inside.                                                                                    |
+| `minWidth`                    | `number`    | `768`   | The base width (in px) where scaling begins. Content will scale down when the viewport is smaller than this width.                 |
+| `className`                   | `string`    | `""`    | The CSS class to apply to the wrapping `div` of the layout.                                                                    |
+| `disableScalingAboveMinWidth` | `boolean`   | `true`  | If `true`, the content will not scale up (remains at `scale: 1`) even if the viewport is wider than `minWidth`.                    |
+| `maxScale`                    | `number`    | `1`     | When `disableScalingAboveMinWidth` is `false`, this limits the maximum scale value.                                              |
+| `scaleStep`                   | `number`    | `0.01`  | Sets the precision of the scale value. For example, `0.01` rounds the scale value to two decimal places.                           |
+
+### `useScaling()` Return Values
+
+| Value          | Type                     | Description                                                                                                                                                                                          |
+| -------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `windowWidth`  | `number`                 | The current inner width of the browser window (in px).                                                                                                                                     |
+| `windowHeight` | `number`                 | The current inner height of the browser window (in px).                                                                                                                                    |
+| `scale`        | `number`                 | The currently applied scale value. (e.g., if `minWidth` is 768px and `windowWidth` is 384px, the scale will be 0.5).                                                                        |
+| `scaledVh`     | `(vh: number) => number` | A function that converts a `vh` unit to a pixel value suitable for the scaled environment. This is useful because the standard CSS `vh` unit is not affected by `transform: scale`, allowing for accurate height calculations. |
+
+## 📜 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+# React Scaling Layout
+
 [](https://www.google.com/search?q=https://badge.fury.io/js/%2540your-npm-username%252Freact-scaling-layout)
 [](https://opensource.org/licenses/MIT)
 
@@ -18,7 +123,7 @@
 npm install @sspzoa/react-scaling-layout
 
 # yarn 사용 시
-yarn add @sspoa/react-scaling-layout
+yarn add @sspzoa/react-scaling-layout
 ```
 
 ## 📖 사용법

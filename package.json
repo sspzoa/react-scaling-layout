@@ -1,0 +1,32 @@
+{
+  "name": "@sspzoa/react-scaling-layout",
+  "version": "1.0.0",
+  "description": "A React layout component that scales its content based on the viewport width.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "layout",
+    "scaling",
+    "responsive"
+  ],
+  "author": "Seungpyo Suh",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.13",
+    "react": "^19.1.1",
+    "typescript": "^5.0.0"
+  }
+}

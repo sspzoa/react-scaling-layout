@@ -1,5 +1,5 @@
 {
-  "name": "@sspzoa/react-scaling-layout",
+  "name": "react-scaling-layout",
   "version": "1.0.0",
   "description": "A React layout component that scales its content based on the viewport width.",
   "main": "dist/index.js",

@@ -3,7 +3,7 @@
 [](https://www.google.com/search?q=https://badge.fury.io/js/%2540sspzoa%252Freact-scaling-layout)
 [](https://opensource.org/licenses/MIT)
 
-`@sspzoa/react-scaling-layout` is a responsive React layout component that dynamically scales its entire content based on the viewport width. It helps maintain design consistency on smaller screens for layouts that were designed with a specific minimum width (e.g., 768px) in mind.
+`react-scaling-layout` is a responsive React layout component that dynamically scales its entire content based on the viewport width. It helps maintain design consistency on smaller screens for layouts that were designed with a specific minimum width (e.g., 768px) in mind.
 
 ## ✨ Why Use It?
 
@@ -15,10 +15,10 @@
 
 ```bash
 # Using npm
-npm install @sspzoa/react-scaling-layout
+npm install react-scaling-layout
 
 # Using yarn
-yarn add @sspzoa/react-scaling-layout
+yarn add react-scaling-layout
 ```
 
 ## 📖 Usage
@@ -29,7 +29,7 @@ Wrap the section you want to apply scaling to with the `ScalingLayout` component
 
 ```jsx
 // App.jsx
-import { ScalingLayout } from '@sspzoa/react-scaling-layout';
+import { ScalingLayout } from 'react-scaling-layout';
 import MyPage from './MyPage';
 
 function App() {
@@ -51,7 +51,7 @@ In a child component of `ScalingLayout`, you can use the `useScaling` hook to ac
 
 ```jsx
 // MyComponent.jsx
-import { useScaling } from '@sspzoa/react-scaling-layout';
+import { useScaling } from 'react-scaling-layout';
 
 function MyComponent() {
   const { scale, windowWidth, scaledVh } = useScaling();
@@ -108,7 +108,7 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 [](https://www.google.com/search?q=https://badge.fury.io/js/%2540your-npm-username%252Freact-scaling-layout)
 [](https://opensource.org/licenses/MIT)
 
-`@sspzoa/react-scaling-layout`은 뷰포트 너비에 따라 전체 콘텐츠를 동적으로 스케일링하는 반응형 React 레이아웃 컴포넌트입니다. 특정 최소 너비(예: 768px)를 기준으로 디자인된 레이아웃이 작은 화면에서도 디자인 일관성을 유지하도록 도와줍니다.
+`react-scaling-layout`은 뷰포트 너비에 따라 전체 콘텐츠를 동적으로 스케일링하는 반응형 React 레이아웃 컴포넌트입니다. 특정 최소 너비(예: 768px)를 기준으로 디자인된 레이아웃이 작은 화면에서도 디자인 일관성을 유지하도록 도와줍니다.
 
 ## ✨ 왜 필요한가요?
 
@@ -120,10 +120,10 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ```bash
 # npm 사용 시
-npm install @sspzoa/react-scaling-layout
+npm install react-scaling-layout
 
 # yarn 사용 시
-yarn add @sspzoa/react-scaling-layout
+yarn add react-scaling-layout
 ```
 
 ## 📖 사용법
@@ -134,7 +134,7 @@ yarn add @sspzoa/react-scaling-layout
 
 ```jsx
 // App.jsx
-import { ScalingLayout } from '@sspzoa/react-scaling-layout';
+import { ScalingLayout } from 'react-scaling-layout';
 import MyPage from './MyPage';
 
 function App() {
@@ -155,7 +155,7 @@ export default App;
 
 ```jsx
 // MyComponent.jsx
-import { useScaling } from '@sspzoa/react-scaling-layout';
+import { useScaling } from '@react-scaling-layout';
 
 function MyComponent() {
   const { scale, windowWidth, scaledVh } = useScaling();

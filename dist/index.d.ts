@@ -1,0 +1,1 @@
+export { default as ScalingLayout, useScaling } from "./ScalingLayout";
